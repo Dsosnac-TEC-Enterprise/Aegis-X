@@ -52,3 +52,16 @@ def send_mesh_command(cmd: MeshCmd):
     """Sends a command to a specific IoT node via MQTT."""
     mqtt_net.publish_command(cmd.target_node, {"action": cmd.action})
     return {"status": "Command published"}
+
+from .modules.hackrf import HackRFManager
+
+sdr = HackRFManager()
+
+@app.get("/sdr/info")
+def get_sdr_info():
+    return {"info": sdr.get_info()}
+
+@app.post("/sdr/capture")
+def start_sdr_capture(frequency: int):
+    return {"status": sdr.start_rx(frequency)}
+
