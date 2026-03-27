@@ -65,3 +65,17 @@ def get_sdr_info():
 def start_sdr_capture(frequency: int):
     return {"status": sdr.start_rx(frequency)}
 
+# Add to FastAPI main.py
+
+@app.post("/flipper/replay")
+def trigger_replay(filename: str):
+    """
+    Triggers a Sub-GHz replay from the Flipper's SD card.
+    Example filename: '/ext/subghz/garage_door.sub'
+    """
+    if not flipper.serial_conn:
+        raise HTTPException(status_code=500, detail="Flipper not connected")
+        
+    output = flipper.subghz_replay(filename)
+    return {"status": "Replay triggered", "output": output}
+
