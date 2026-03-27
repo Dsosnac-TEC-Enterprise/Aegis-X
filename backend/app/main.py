@@ -79,3 +79,15 @@ def trigger_replay(filename: str):
     output = flipper.subghz_replay(filename)
     return {"status": "Replay triggered", "output": output}
 
+@app.get("/sdr/sweep")
+def hackrf_spectral_sweep(start: int = 2400, end: int = 2500):
+    """Triggers a 100MHz sweep on the HackRF."""
+    return sdr.start_sweep(start_mhz=start, end_mhz=end)
+
+@app.post("/mesh/wifi-scan")
+def trigger_node_wifi_scan(node_id: str):
+    """Tells a specific ESP32 node to perform a WiFi reconnaissance scan."""
+    mqtt_net.publish_command(node_id, {"action": "wifi_scan"})
+    return {"status": f"Scan command sent to {node_id}"}
+
+
