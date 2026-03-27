@@ -53,3 +53,26 @@ class MQTTGateway:
     def stop(self):
         self.client.loop_stop()
         self.client.disconnect()
+
+import time
+
+class MQTTGateway:
+    def __init__(self, broker="localhost"):
+        # ... (previous init code)
+        self.nodes = {} # Stores node_id: {status, last_seen, data}
+
+    def _on_message(self, client, userdata, msg):
+        try:
+            payload = json.loads(msg.payload.decode())
+            node_id = msg.topic.split('/')[-1] # Assuming topic is aegis_x/mesh/NODE_ID
+            
+            # Update node registry
+            self.nodes[node_id] = {
+                "id": node_id,
+                "last_seen": time.time(),
+                "data": payload,
+                "status": "online"
+            }
+        except Exception as e:
+            print(f"Error: {e}")
+
