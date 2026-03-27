@@ -90,4 +90,19 @@ def trigger_node_wifi_scan(node_id: str):
     mqtt_net.publish_command(node_id, {"action": "wifi_scan"})
     return {"status": f"Scan command sent to {node_id}"}
 
+from .modules.mqtt_brute import MQTTBruter
+
+@app.post("/mesh/brute-force")
+def start_mqtt_brute(target_ip: str):
+    bruter = MQTTBruter(target_ip)
+    # Simple example wordlist; in production, you'd load a file
+    users = ["admin", "root", "user"]
+    pwds = ["1234", "password", "admin", "mosquitto"]
+    
+    result = bruter.run_wordlist(users, pwds)
+    if result:
+        return {"status": "Compromised", "credentials": result}
+    return {"status": "Secure", "message": "Wordlist exhausted"}
+
+
 
