@@ -1,32 +1,54 @@
-from fastapi import FastAPI, BackgroundTasks
-from fastapi.middleware.cors import CORSMiddleware
-import uvicorn
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+from .modules.flipper import FlipperManager
+from .modules.iot_mqtt import MQTTGateway
 
-app = FastAPI(title="Aegis-X Gateway Terminal", version="1.0.0")
+app = FastAPI(title="Aegis-X Gateway", version="1.0.0")
 
-# Allow the React Native frontend to communicate with this API
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# --- Initialization ---
+flipper = FlipperManager()
+mqtt_net = MQTTGateway(broker="localhost") # Use your broker IP if not local
 
-@app.get("/")
-def read_root():
-    return {"status": "Aegis-X Gateway is ONLINE 🔥"}
+@app.on_event("startup")
+async def startup_event():
+    # Start the MQTT listener
+    mqtt_net.start()
+    # Attempt to connect to Flipper if plugged in
+    flipper.connect()
 
-@app.get("/devices")
-def get_connected_devices():
-    # In the future, this will scan and return live hardware
+# --- Models ---
+class FlipperCmd(BaseModel):
+    command: str
+
+class MeshCmd(BaseModel):
+    target_node: str
+    action: str
+
+# --- Endpoints ---
+
+@app.get("/status")
+def get_system_status():
     return {
-        "devices": [
-            {"id": "flipper_1", "type": "FlipperZero", "status": "disconnected"},
-            {"id": "hackrf_1", "type": "HackRFOne", "status": "disconnected"},
-            {"id": "iot_node_a", "type": "ESP32", "status": "connected"}
-        ]
+        "flipper_connected": flipper.serial_conn is not None and flipper.serial_conn.is_open,
+        "mqtt_status": "Listening",
+        "mesh_messages_count": len(mqtt_net.latest_messages)
     }
 
-if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+@app.post("/flipper/exec")
+def execute_flipper_command(cmd: FlipperCmd):
+    """Send a CLI command to the Flipper Zero via the API."""
+    result = flipper.send_command(cmd.command)
+    if result is None:
+        raise HTTPException(status_code=500, detail="Flipper not connected or command failed")
+    return {"command": cmd.command, "output": result}
+
+@app.get("/mesh/logs")
+def get_mesh_logs():
+    """Returns the latest traffic from the IoT mesh."""
+    return {"logs": mqtt_net.latest_messages}
+
+@app.post("/mesh/send")
+def send_mesh_command(cmd: MeshCmd):
+    """Sends a command to a specific IoT node via MQTT."""
+    mqtt_net.publish_command(cmd.target_node, {"action": cmd.action})
+    return {"status": "Command published"}
