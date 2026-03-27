@@ -82,3 +82,36 @@ if __name__ == "__main__":
         except Exception as e:
             return {"error": str(e)}
 
+# Update the start_sweep method in HackRFManager
+
+    def start_sweep(self, start_mhz=2400, end_mhz=2480):
+        if not self.check_tools(): return {"error": "Tools missing"}
+
+        command = ["hackrf_sweep", "-f", f"{start_mhz}:{end_mhz}", "-n", "1"]
+        
+        try:
+            result = subprocess.run(command, capture_output=True, text=True)
+            labels = []
+            values = []
+
+            # hackrf_sweep output is CSV: 
+            # date, time, hz_low, hz_high, hz_bin_width, samples, db_1, db_2...
+            for line in result.stdout.splitlines():
+                parts = line.split(', ')
+                if len(parts) > 6:
+                    freq_mhz = int(parts[2]) / 1000000
+                    db_level = float(parts[6]) # Using the first bin's power level
+                    
+                    labels.append(f"{freq_mhz:.1f}")
+                    values.append(db_level)
+
+            # We'll downsample to 10 points so the chart isn't overcrowded
+            step = max(1, len(labels) // 10)
+            return {
+                "labels": labels[::step],
+                "datasets": [{"data": values[::step]}]
+            }
+        except Exception as e:
+            return {"error": str(e)}
+
+
