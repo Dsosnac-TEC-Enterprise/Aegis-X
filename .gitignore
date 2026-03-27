@@ -1,3 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+*.log
+
+# Node / React Native
+node_modules/
+.expo/
+dist/
+npm-debug.log*
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Hardware/SDR captures
+*.iq
+*.bin
+
 # Build and Release Folders
 bin-debug/
 bin-release/
