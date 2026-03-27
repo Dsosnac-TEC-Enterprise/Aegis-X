@@ -57,3 +57,28 @@ if __name__ == "__main__":
     sdr = HackRFManager()
     print("--- HackRF Status ---")
     print(sdr.get_info())
+
+
+    def start_sweep(self, start_mhz=2400, end_mhz=2480, bin_width=1000000):
+        """
+        Performs a rapid frequency sweep (default: 2.4GHz ISM band).
+        bin_width: 1MHz steps by default.
+        """
+        if not self.check_tools(): return "HackRF tools not found."
+
+        # Command: hackrf_sweep -f <start>:<end> -w <bin_width>
+        command = [
+            "hackrf_sweep",
+            "-f", f"{start_mhz}:{end_mhz}",
+            "-w", str(bin_width),
+            "-n", "1" # Just one sweep for a snapshot
+        ]
+
+        try:
+            result = subprocess.run(command, capture_output=True, text=True)
+            # Parse CSV-style output from hackrf_sweep
+            sweep_data = result.stdout.splitlines()
+            return {"data": sweep_data[:10], "status": "Sweep complete"} # Send first 10 rows for preview
+        except Exception as e:
+            return {"error": str(e)}
+
