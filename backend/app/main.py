@@ -104,5 +104,25 @@ def start_mqtt_brute(target_ip: str):
         return {"status": "Compromised", "credentials": result}
     return {"status": "Secure", "message": "Wordlist exhausted"}
 
+from .modules.payload_manager import PayloadManager
+
+@app.get("/payloads")
+def list_payloads():
+    return PayloadManager.get_all()
+
+@app.post("/payloads/launch/{payload_id}")
+def launch_payload(payload_id: int):
+    """Finds a payload by ID and tells the Flipper to transmit it."""
+    payloads = PayloadManager.get_all()
+    target = next((p for p in payloads if p["id"] == payload_id), None)
+    
+    if not target:
+        raise HTTPException(status_code=404, detail="Payload not found")
+        
+    # Reuse our Flipper logic from before
+    output = flipper.subghz_replay(target["file_path"])
+    return {"status": f"Launched {target['name']}", "flipper_output": output}
+
+
 
 
