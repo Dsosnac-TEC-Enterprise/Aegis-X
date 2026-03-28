@@ -134,6 +134,16 @@ def export_logs():
     content = SessionLogger.get_log_content()
     return {"filename": "aegis_x_log.txt", "content": content}
 
+@app.post("/flipper/command")
+def execute_flipper_cmd(command: str, lat: float = None, lon: float = None):
+    # Log the action with location
+    SessionLogger.log("FLIPPER", command, lat, lon)
+    
+    # Execute the actual hardware command
+    output = flipper.send_command(command)
+    return {"status": "Success", "output": output}
+
+
 
 
 
