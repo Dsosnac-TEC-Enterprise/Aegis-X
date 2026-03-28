@@ -123,6 +123,18 @@ def launch_payload(payload_id: int):
     output = flipper.subghz_replay(target["file_path"])
     return {"status": f"Launched {target['name']}", "flipper_output": output}
 
+from .modules.logger import SessionLogger
+
+# Initialize logger on startup
+SessionLogger.initialize()
+
+@app.get("/system/logs")
+def export_logs():
+    """Returns the full session log as a string."""
+    content = SessionLogger.get_log_content()
+    return {"filename": "aegis_x_log.txt", "content": content}
+
+
 
 
 
