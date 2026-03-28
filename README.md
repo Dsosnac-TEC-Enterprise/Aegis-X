@@ -38,3 +38,5 @@ npx expo start
 ```
 ### 🛡️ Responsible Use
 Aegis-X is built for educational and authorized security testing purposes ONLY. The creators are not responsible for misuse or damage caused by this software. Use your powers for good. ⚒️
+
+*Copyright (c) 2026 David Sosnac, All rights reserved*
