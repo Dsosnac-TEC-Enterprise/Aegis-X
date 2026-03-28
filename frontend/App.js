@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
   button: { backgroundColor: '#00FF00', padding: 15, borderRadius: 5, alignItems: 'center', marginTop: 20 },
   buttonText: { color: '#000000', fontWeight: 'bold', fontSize: 16 }
 });
+
 import { ThemeProvider } from './src/context/ThemeContext';
 import AuthGate from './src/components/AuthGate';
 
