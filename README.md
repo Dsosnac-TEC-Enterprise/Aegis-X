@@ -20,22 +20,32 @@
 - **Backend:** FastAPI (Python Gateway)
 - **Communications:** MQTT (IoT Mesh) & Serial (Hardware)
 
-## 📦 Installation
+## 🚀 Getting Started
 
-### 1. Backend Setup
+Follow these steps to clone and deploy **Aegis-X** on your local machine.
+
+### 1. Clone the Repository
+Open your terminal and run the following command to clone the project from GitHub:
+
 ```bash
-cd backend
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-python app/main.py
+git clone [https://github.com/Sosnac/Aegis-X.git](https://github.com/Sosnac/Aegis-X.git)
+cd Aegis-X
 ```
-### 2. Frontend Setup
+
+### 2. Run the Automated Setup
+We have provided a unified setup script that installs all system dependencies, configures the Python virtual environment, and prepares the React Native frontend.
+
 ```bash
-cd frontend
-npm install
-npx expo start
+chmod +x setup.sh
+./setup.sh
 ```
+### 3. Launch the Framework
+Use our custom start script to boot both the FastAPI Gateway and the Mobile Terminal simultaneously:
+
+```bash
+./scripts/start_all.sh
+```
+
 ### 🛡️ Responsible Use
 Aegis-X is built for educational and authorized security testing purposes ONLY. The creators are not responsible for misuse or damage caused by this software. Use your powers for good. ⚒️
 
