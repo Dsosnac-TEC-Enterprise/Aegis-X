@@ -28,8 +28,8 @@ Follow these steps to clone and deploy **Aegis-X** on your local machine.
 Open your terminal and run the following command to clone the project from GitHub:
 
 ```bash
-git clone [https://github.com/Sosnac/Aegis-X.git](https://github.com/Sosnac/Aegis-X.git)
-cd Aegis-X
+git clone https://github.com/Sosnac/Aegis-X-.git
+cd Aegis-X-
 ```
 
 ### 2. Run the Automated Setup
