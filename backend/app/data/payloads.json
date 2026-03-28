@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Tesla Charge Port",
+    "type": "subghz",
+    "frequency": "315.00",
+    "file_path": "/ext/subghz/tesla_open.sub"
+  },
+  {
+    "id": 2,
+    "name": "Office Gate (Test)",
+    "type": "subghz",
+    "frequency": "433.92",
+    "file_path": "/ext/subghz/gate_replay.sub"
+  }
+]
