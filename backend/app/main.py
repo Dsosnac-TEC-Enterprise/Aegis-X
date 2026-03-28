@@ -143,6 +143,30 @@ def execute_flipper_cmd(command: str, lat: float = None, lon: float = None):
     output = flipper.send_command(command)
     return {"status": "Success", "output": output}
 
+import re
+
+@app.get("/system/map-history")
+def get_map_history():
+    """Parses session_log.txt and returns coordinates for map pins."""
+    history = []
+    log_content = SessionLogger.get_log_content()
+    
+    # Regex to find: [TIMESTAMP] [TYPE] @ [LAT, LON] MESSAGE
+    pattern = r"\[(.*?)\] \[(.*?)\] @ \[(.*?), (.*?)\] (.*)"
+    
+    matches = re.findall(pattern, log_content)
+    for match in matches:
+        history.append({
+            "timestamp": match[0],
+            "type": match[1],
+            "latitude": float(match[2]),
+            "longitude": float(match[3]),
+            "message": match[4]
+        })
+    
+    return history
+
+
 
 
 
