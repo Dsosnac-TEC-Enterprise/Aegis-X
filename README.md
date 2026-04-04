@@ -1,4 +1,4 @@
-![Aegis-X](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=Aegis-X🚀&fontSize=70&fontAlignY=40&desc=IoTMesh%20Gateway%20&descAlignY=60&descAlign=50)
+![Aegis-X](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=Aegis-X🚀&fontSize=70&fontAlignY=40&desc=IoTMesh%20Gateway%20&fontAlignY=60&descAlign=50)
 
 ## 🛡️Aegis-X: The Ultimate Security & IoT Mesh Gateway
 
