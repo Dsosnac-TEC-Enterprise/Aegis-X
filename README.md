@@ -1,3 +1,5 @@
+![Aegis-X](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=Aegis-X🚀&fontSize=70&fontAlignY=40&desc=Ultimate%20Security%20&IoT&Mesh&Gateway&descAlignY=60&descAlign=50)
+
 ## 🛡️Aegis-X: The Ultimate Security & IoT Mesh Gateway
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
