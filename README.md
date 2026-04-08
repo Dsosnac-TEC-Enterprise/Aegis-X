@@ -1,4 +1,4 @@
-![Aegis-X](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=Aegis-X🚀&fontSize=70&fontAlignY=40&desc=IoTMesh%20Gateway%20&descAlignY=60&descAlign=50)
+![Aegis-X](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=Aegis-X⚡&fontSize=70&fontAlignY=40&desc=IoTMesh%20Gateway%20&descAlignY=60&descAlign=50)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
 [![React Native](https://img.shields.io/badge/React_Native-Cross--Platform-61DAFB.svg)](https://reactnative.dev/)
@@ -9,7 +9,7 @@
 
 ---
 
-## 🚀 Key Features
+## 🔑 Key Features
 * **Unified Hardware Terminal:** A single mobile interface to control multiple SDR and Serial devices.
 * **IoT Mesh Mapping:** Real-time visualization of MQTT nodes in your network.
 * **Sub-GHz Command Center:** Remote triggering of RF captures and replays via Flipper Zero.
