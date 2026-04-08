@@ -5,9 +5,9 @@ from umqtt.simple import MQTTClient
 import json
 
 # Configuration
-WIFI_SSID = "Your_Home_WiFi"
-WIFI_PASS = "Your_Password"
-MQTT_BROKER = "192.168.1.XX" # Your Aegis-X Backend IP
+WIFI_SSID = "Home_WiFi"
+WIFI_PASS = "Password"
+MQTT_BROKER = "127.0.0.1" # Aegis-X Backend IP
 NODE_ID = "node_delta_01"
 
 def connect_wifi():
