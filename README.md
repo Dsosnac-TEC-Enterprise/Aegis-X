@@ -3,10 +3,9 @@
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
 [![React Native](https://img.shields.io/badge/React_Native-Cross--Platform-61DAFB.svg)](https://reactnative.dev/)
 
-**Author**: David Sosnac 
-
 **Aegis-X** is an open-source, modular gateway and terminal designed for security researchers and IT specialists. It bridges the gap between high-level mobile interfaces and low-level hardware like the **Flipper Zero**, **HackRF One**, and custom **MQTT-based IoT mesh networks**.
 
+**Author:** David Sosnac 
 ---
 
 ## 🔑 Key Features
