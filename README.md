@@ -46,7 +46,7 @@ Use our custom start script to boot both the FastAPI Gateway and the Mobile Term
 ```bash
 ./scripts/start_all.sh
 ```
-## Guidance 
+## 🧭Guidance 
 For guidance kindly open our docs folder and view guidance files for clarity.
 
 ## 🛡️ Responsible Use
