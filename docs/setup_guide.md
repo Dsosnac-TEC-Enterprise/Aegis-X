@@ -30,5 +30,7 @@ Instead of launching the frontend and backend in separate terminal windows, use 
 
 Now, when you run your backend, it will start on the secure port.
 Start the server: `python main.py` (inside the backend/app folder).
+
 Access the Dashboard: Open your browser to https://localhost:8443.
+
 Confirm the Warning: Your browser will complain about the self-signed certificate—just click through it.
