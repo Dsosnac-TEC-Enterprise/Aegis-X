@@ -18,4 +18,4 @@ The following behaviors are considered violations of our code of conduct:
 * Other conduct which could reasonably be considered inappropriate in a professional setting.
 
 ## 🛠️ Enforcement
-Responsibilities for enforcement lie with the project maintainer (**@sosnacdavid@gmail.com**). Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the maintainer.
+Responsibilities for enforcement lie with the project maintainer (**David Sosnac** **@sosnacdavid@gmail.com**). Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the maintainer.
