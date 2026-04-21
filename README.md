@@ -47,7 +47,7 @@ Use our custom start script to boot both the FastAPI Gateway and the Mobile Term
 ./scripts/start_all.sh
 ```
 ## 🧭Guidance 
-For guidance kindly open our documentation folder (docs) and view guidance files for clarity.
+For guidance kindly open our documentation folder (docs) and view guidance files for more clarity.
 
 ## 🛡️ Responsible Use
 Aegis-X is built for educational and authorized security testing purposes ONLY. The creators are not responsible for misuse or damage caused by this software. Use your powers for good. ⚒️
