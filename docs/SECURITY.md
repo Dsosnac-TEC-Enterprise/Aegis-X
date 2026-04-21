@@ -1,4 +1,4 @@
-# Security Policy (SECURITY.md)
+# Security Policy 
 
 ## 🛡️ Aegis-X Security Commitment
 As a security tool, we take the safety of Aegis-X extremely seriously. We are committed to fixing vulnerabilities that could compromise the operator's host machine, the connected hardware, or the data collected.
