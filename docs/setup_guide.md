@@ -43,10 +43,10 @@ openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -node
 
 OR Render your Legitimate CA signed certificate of your own
 
-Start the server: `python main.py` (inside the backend/app folder).
+•Start the server: `python main.py` (inside the backend/app folder).
 
-Access the Dashboard: Open your browser to https://localhost:8443.
+•Access the Dashboard: Open your browser to https://localhost:8443.
 
-Confirm the Warning: Your browser will complain about the self-signed certificate—just click through it.
+•Confirm the Warning: Your browser will complain about the self-signed certificate—just click through it.
 
  
