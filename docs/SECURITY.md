@@ -15,7 +15,7 @@ Currently, only the latest release is supported for security updates.
 **Do not open a public GitHub issue for security vulnerabilities.**
 
 If you discover a security flaw in Aegis-X, please report it via the following steps:
-1. Send an email to the maintainer (or use GitHub's Private Vulnerability Reporting feature if enabled).
+1. Send an email to the maintainer @email: sosnacdavid@gmail.com and within 48 hours you will be given feedback.
 2. Include a detailed description of the vulnerability and steps to reproduce it (PoC).
 3. Give us **90 days** to provide a fix before any public disclosure.
 
