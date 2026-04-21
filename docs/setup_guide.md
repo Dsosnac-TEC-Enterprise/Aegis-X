@@ -29,14 +29,6 @@ Instead of launching the frontend and backend in separate terminal windows, use 
 ## 🏃4. Launching the Secure Beast
 
 Now, when you run your backend, it will start on the secure port.
-
-Start the server: `python main.py` (inside the backend/app folder).
-
-Access the Dashboard: Open your browser to https://localhost:8443.
-
-Confirm the Warning: Your browser will complain about the self-signed certificate—just click through it.
-
-## 🔑 5. Generate your OpenSSL Certificates
 First, you need a key and a certificate. Run this command in your backend/ folder:
 ```bash
 openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes
@@ -47,6 +39,14 @@ openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -node
 
 •cert.pem: Your public certificate.
 
-•**Note:** Since these are self-signed, your browser will show a "Warning: Not Secure" message. Click "Advanced" -> "Proceed" to enter.
+•**Note:** Since these are self-signed certificates, your browser will show a "Warning: Not Secure" message. Click "Advanced" -> "Proceed" to enter.
 
 OR Render your Legitimate CA signed certificate of your own
+
+Start the server: `python main.py` (inside the backend/app folder).
+
+Access the Dashboard: Open your browser to https://localhost:8443.
+
+Confirm the Warning: Your browser will complain about the self-signed certificate—just click through it.
+
+ 
