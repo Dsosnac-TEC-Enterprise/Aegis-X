@@ -7,7 +7,7 @@ const MeshMapScreen = () => {
   useEffect(() => {
     const interval = setInterval(async () => {
       try {
-        const response = await fetch('http://localhost:8000/mesh/nodes'); // We'll add this endpoint
+        const response = await fetch('https://localhost:8443/mesh/nodes'); // We'll add this endpoint
         const data = await response.json();
         setNodes(Object.values(data.nodes));
       } catch (e) { console.log("Mesh fetch failed"); }
