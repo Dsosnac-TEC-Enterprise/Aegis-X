@@ -18,7 +18,7 @@ const TerminalScreen = () => {
 
     try {
         // Example: Logic to route command to Flipper
-        const response = await fetch('http://localhost:8000/flipper/exec', {
+        const response = await fetch('https://localhost:8443/flipper/exec', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ command: cmd }),
