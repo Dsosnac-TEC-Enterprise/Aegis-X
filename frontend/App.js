@@ -9,7 +9,7 @@ export default function App() {
   const fetchGatewayData = async () => {
     try {
       // Note: Replace this IP with your computer's local IP when testing on a real mobile device
-      const response = await fetch('http://127.0.0.1:8000/devices'); 
+      const response = await fetch('https://127.0.0.1:8443/devices'); 
       const data = await response.json();
       setGatewayStatus('Aegis-X ONLINE 💪🏾');
       setDevices(data.devices);
