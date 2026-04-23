@@ -9,7 +9,7 @@ const SignalVisualizer = () => {
   const fetchSweep = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:8000/sdr/sweep?start=2400&end=2500');
+      const response = await fetch('https://localhost:8443/sdr/sweep?start=2400&end=2500');
       const data = await response.json();
       if (!data.error) setChartData(data);
     } catch (e) {
