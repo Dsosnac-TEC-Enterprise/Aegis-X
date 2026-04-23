@@ -8,7 +8,7 @@ const MapHistoryScreen = () => {
   const { colors } = useTheme();
 
   useEffect(() => {
-    fetch('http://localhost:8000/system/map-history')
+    fetch('https://localhost:8443/system/map-history')
       .then(res => res.json())
       .then(data => setHistory(data))
       .catch(err => console.error(err));
