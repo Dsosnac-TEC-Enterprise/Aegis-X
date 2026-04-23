@@ -5,7 +5,7 @@ const PayloadLibraryScreen = () => {
   const [payloads, setPayloads] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8000/payloads')
+    fetch('https://localhost:8443/payloads')
       .then(res => res.json())
       .then(data => setPayloads(data));
   }, []);
